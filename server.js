@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
+uuidv4(); // ⇨ '1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed'
 
 const PORT = 3001;
 
@@ -28,8 +30,35 @@ app.get('/api/notes', (_req, res) => {
     })
 });
 
-// app.post('/notes', (req, res) =>)
+app.post('/api/notes', (req, res) => {
+    console.info(`${req.method} request received to add a review`);
 
+    const { title, text } = req.body;
+    if (title && text) {
+        const newNote = {
+            title,
+            text,
+            id: uuidv4()
+        }
+        
+        fs.readFile('./db/db.json', function(err, data){
+            if (err) throw err;
+            const parsedData = JSON.parse(data);
+            parsedData.push(newNote);
+            const noteString = JSON.stringify(parsedData)
+
+            fs.writeFile(`./db/db.json`, noteString, (err) => {
+                if (err) throw err;
+                res.json(parsedData)
+            });
+        })
+
+
+    }
+
+})
+
+app.delete()
 app.listen(PORT, () => {
     console.log(`Example app listening at http://localhost:${PORT}`);
   });
