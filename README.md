@@ -18,9 +18,12 @@ This project functions as a note taking app in order to keep one's thoughts and 
 Steps required to install your project:
 
 In order to use this application you can either download the repository code from my GitHub here: 
-[Express.js Note Taker Github Repository](https://github.com/savannahfausto/Fausto_Express_Note_Taker)
+[Express.js Note Taker Github Repository](https://github.com/savannahfausto/Fausto_Express_Note_Taker) 
 
-Or you can follow the link to the deployed web page by Heroku:
+If a user decides to clone the repository to their local, please run npm i first to install dependencies and then run npm start, to start the application.
+
+Otherwise you can follow the link to the deployed web page by Heroku:
+[Deployed web application URL](https://shielded-cliffs-83199.herokuapp.com/)
 
 
 
