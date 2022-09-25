@@ -42,7 +42,7 @@ Finally the user has the option of deleting a particular note if desired.
 ![Image of a Note after deletion](./public/assets/images/afterdelete.png)
 
 Here is a walkthrough video showing the functionality of this web application: 
-
+[Link to walkthrough video](https://drive.google.com/file/d/1aA8aBxAsjQOcvvId7IAnApioTnhGsYWv/view)
 
 ## Contribution
 

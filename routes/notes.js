@@ -2,13 +2,13 @@ const router = require('express').Router();
 const { v4: uuidv4 } = require('uuid');
 const { readFromFile, writeToFile, readAndAppend } = require('../helpers/fsUtils');
 
-
+//get route for api/notes
 router.get('/', (_req, res) => {
     readFromFile('./db/db.json').then((data) =>
     res.json(JSON.parse(data))
   );
 });
-
+//post route for api/notes
 router.post('/', (req, res) => {
     console.info(`${req.method} request received to add a review`);
 
@@ -27,7 +27,7 @@ router.post('/', (req, res) => {
     }
 
 })
-
+//delete route for api/notes/:id
 router.delete('/:id', (req, res) => {
   const noteId = req.params.id;
   readFromFile('./db/db.json')
@@ -38,9 +38,6 @@ router.delete('/:id', (req, res) => {
 
       // Save that array to the filesystem
       writeToFile('./db/db.json', result, res, noteId);
-
-      // Respond to the DELETE request
-      //res.json(`Item ${noteId} has been deleted 🗑️`);
     });
 
 });

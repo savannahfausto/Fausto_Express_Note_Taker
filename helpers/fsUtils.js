@@ -1,3 +1,4 @@
+//helper function to read, write and append files
 const fs = require('fs');
 const util = require('util');
 
