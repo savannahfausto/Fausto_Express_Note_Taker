@@ -20,8 +20,8 @@ router.post('/', (req, res) => {
             id: uuidv4()
         }
         
-        readAndAppend(newNote, './db/db.json');
-        res.json(`Note added successfully 🚀`);
+        readAndAppend(newNote, './db/db.json', res);
+        //res.json(`Note added successfully 🚀`);
     } else {
         res.error('Error in adding note');
     }
@@ -37,10 +37,10 @@ router.delete('/:id', (req, res) => {
       const result = json.filter((note) => note.id !== noteId);
 
       // Save that array to the filesystem
-      writeToFile('./db/db.json', result);
+      writeToFile('./db/db.json', result, res, noteId);
 
       // Respond to the DELETE request
-      res.json(`Item ${noteId} has been deleted 🗑️`);
+      //res.json(`Item ${noteId} has been deleted 🗑️`);
     });
 
 });
